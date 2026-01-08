@@ -1,35 +1,55 @@
-class Student:
-    count=0
-    StudentList=[]
-    def __init__(self, name, id):
-         self.id=id
-         self.name=name
-         Student.count+=1
-         print("đã khởi tạo 1 student")
-         Student.StudentList.append(self)
-    def display(self):
-         print("ID: %d \nName: %s" % (self.id, self.name))
-     
-Stu1= Student("Huy", 1)
-Stu2= Student("Huy", 1)
-Stu3= Student("Huy", 1)
-Stu4= Student("Huy", 1)
-Stu5= Student("Huy", 1)
-Stu6= Student("Huy", 1)
-Stu7= Student("Huy", 1)
-print("Số lượng sinh viên: ", Student.count)
+class Player:
+    def __init__(self, name, sport, score=0):
+        self.name= name
+        self.sport=sport
+        self.score=score
 
-print("--- Danh sách sinh viên ---")
-for s in Student.StudentList:
-    print(f"ID: {s.id} | Tên: {s.name}")
-
-class Teacher(Student):
-     def __init__(self, name, id):
-          super().__init__(name, id)
-     def show(self):
-          print("Đây là giáo viên")
+    def show_info(self):
+        print("Player detail:")
+        print("Player Name: "+ self.name)
+        print("Sport: "+ self.sport)
+        print("Score: ", self.score)
+    def increase_score(self,points):
+        oldscore= self.score
+        self.score+= points
+        print(f"Player {self.name} has increased the scored from {oldscore} to {self.score}")
+        self.show_info()
+        return self.score
+    def reset_score(self):
+        self.score=0
+        print(f"The score of player {self.name} has been reseted")
+        self.show_info()
+        return self.score
 
 
-d= Teacher("Manh",2);
-d.show();
-d.display()
+
+Player1= Player("Messi", "Football")
+Player2=Player("Ronaldo", "Football")
+Player1.show_info()
+Player2.show_info()
+Player1.increase_score(5)
+Player2.increase_score(10)
+Player1.reset_score()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
